@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
-Route::get('/login',function(){
-    return view('login');
-});
+Route::get('/login',[LoginController::class, 'index']);
 
-Route::post('/login',function(){
-    dd("teste");
-});
+Route::post('/login',[LoginController::class, 'store']);
