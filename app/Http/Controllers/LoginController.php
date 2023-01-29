@@ -10,7 +10,11 @@ class LoginController extends Controller
         return view('login');
     }
 
-    function store(){
-        return dd("teste");
+    function store(Request $request){
+        if($request->email == 'fabio@gmail.com' && $request->senha == '12345'){
+            dd("Parabéns! Você está logado em sua conta!");
+        } else {
+            return back()->with('error',"Suas credenciais estão inválidas!");
+        }
     }
 }
